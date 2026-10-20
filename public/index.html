@@ -7,7 +7,7 @@
     <meta name="application-name" content="Fireplace" />
     <meta property="og:site_name" content="Fireplace" />
     <meta property="og:title" content="Fireplace" />
-    <meta name="description" content="Cozy live streams on Stremio, 24/7: a fireplace, lofi, rain and synthwave, and groups of music, nature, animals and space." />
+    <meta name="description" content="Cozy live streams on Stremio, 24/7: a fireplace, lofi, rain and synthwave, the best of it, and groups of music, nature, animals and space." />
     <link rel="icon" href="favicon.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -23,10 +23,11 @@
 
       <p>A fireplace, lofi, rain and synthwave open at once. Choose the groups to have besides them:</p>
       <div class="choices" role="group" aria-label="Groups">
-        <label class="choice"><input type="checkbox" value="music" checked /> Music</label>
-        <label class="choice"><input type="checkbox" value="nature" checked /> Nature</label>
-        <label class="choice"><input type="checkbox" value="animals" checked /> Animals</label>
-        <label class="choice"><input type="checkbox" value="space" checked /> Space</label>
+        <label class="choice"><input type="checkbox" value="best" checked /> Best</label>
+        <label class="choice"><input type="checkbox" value="music" /> Music</label>
+        <label class="choice"><input type="checkbox" value="nature" /> Nature</label>
+        <label class="choice"><input type="checkbox" value="animals" /> Animals</label>
+        <label class="choice"><input type="checkbox" value="space" /> Space</label>
       </div>
 
       <div class="actions">
@@ -57,10 +58,10 @@
       const boxes = [...document.querySelectorAll(".choices input")]
       const asked = new URLSearchParams(location.search).get("groups")
       if (asked !== null) for (const box of boxes) box.checked = asked.split(",").includes(box.value)
-      // With all the groups the address is the plain one, which is also the one for the catalogue of addons
+      // With only the best, which is on by default, the address is the plain one, which is also the one for the catalogue of addons
       const pathOf = () => {
         const chosen = boxes.filter(box => box.checked).map(box => box.value)
-        return chosen.length === boxes.length ? "manifest.json" : "groups=" + chosen.join(",") + "/manifest.json"
+        return chosen.length === 1 && chosen[0] === "best" ? "manifest.json" : "groups=" + chosen.join(",") + "/manifest.json"
       }
       const refresh = wireInstall(pathOf)
       for (const box of boxes) box.addEventListener("change", refresh)
