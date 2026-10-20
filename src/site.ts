@@ -49,7 +49,7 @@ function manifestOf(siteUrl: string, rows: { id: string; name: string }[]) {
     version: "0.2.0",
     name: "🔥 Fireplace",
     description:
-      "Cozy live streams, 24/7: a fireplace, lofi, rain and synthwave first, then the best of music, nature, animals, space and ASMR, and groups of each",
+      "Cozy live streams, 24/7: a fireplace, lofi, rain and synthwave first, then the best of music, nature, animals, space, ASMR and trains, and groups of each",
     logo: `${siteUrl}/logo.png`,
     resources: ["catalog", "meta", "stream"],
     types: ["movie"],
