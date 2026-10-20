@@ -35,7 +35,7 @@ it("has the row of the videos that open at once first in every folder", () => {
 it("picks the best by hand, with the fireplace first and a few from each group", () => {
   const best = read("catalog/movie/best.json").metas.map(({ id }: { id: string }) => id)
 
-  expect(best[0]).toBe("fp-Mkv6368NCC8")
+  expect(best[0]).toBe("fp-oH3f8pj0Z3c")
   expect(best).toEqual(bestGroup.videos.map(({ id }) => `fp-${id}`))
   for (const group of liveGroups) expect(group.videos.filter(video => bestGroup.videos.includes(video)).length).toBeGreaterThanOrEqual(2)
 })
@@ -45,7 +45,7 @@ it("lists the videos that open at once with the fireplace first, and each group'
   const space = read("groups=best,music,nature,animals,space/catalog/movie/space.json").metas
 
   expect(live.map(({ name }: { name: string }) => name)).toEqual(["Fireplace", "Lofi hip hop radio", "Rain and thunder", "Synthwave radio"])
-  expect(live[0]).toMatchObject({ id: "fp-Mkv6368NCC8", type: "movie", poster: "https://i.ytimg.com/vi/Mkv6368NCC8/hqdefault.jpg", posterShape: "landscape" })
+  expect(live[0]).toMatchObject({ id: "fp-oH3f8pj0Z3c", type: "movie", poster: "https://i.ytimg.com/vi/oH3f8pj0Z3c/hqdefault.jpg", posterShape: "landscape" })
   expect(space.map(({ name }: { name: string }) => name)).toEqual(["Earth from the ISS", "Earth views from the ISS", "Starship at Starbase"])
 })
 
@@ -91,7 +91,7 @@ it("opens a video, whether it opens at once or is in a group", () => {
 })
 
 it("plays a video with YouTube's own player", () => {
-  expect(read("stream/movie/fp-Mkv6368NCC8.json")).toEqual({ streams: [{ ytId: "Mkv6368NCC8", name: "Live" }] })
+  expect(read("stream/movie/fp-oH3f8pj0Z3c.json")).toEqual({ streams: [{ ytId: "oH3f8pj0Z3c", name: "Live" }] })
 })
 
 it("has a meta and a stream for each video, and no video twice", () => {
