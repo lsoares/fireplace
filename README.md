@@ -12,4 +12,4 @@ npm run check     # Biome, Knip, type check and tests (also run before every pus
 npm run preview   # builds the site and serves it at http://127.0.0.1:7003
 ```
 
-The list of videos is `src/live.ts`; the best is picked there by hand, from the videos of the groups.
+Only videos that allow embedding are listed, as the others do not play in Stremio; this is checked by hand, with YouTube's player (error 150 means it is not allowed). The list of videos is `src/live.ts`; the best is picked there by hand, from the videos of the groups.
