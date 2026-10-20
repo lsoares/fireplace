@@ -7,7 +7,7 @@ export const thumbnailOf = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefau
 export const liveVideos: LiveVideo[] = [
   { id: "Mkv6368NCC8", name: "Fireplace", description: "A real fireplace, 24/7" },
   { id: "rFZHOHl-L8A", name: "Lofi hip hop radio", description: "Beats to relax and study to, 24/7" },
-  { id: "MoUlbnMVGBU", name: "Rain for sleeping", description: "Heavy rain on a black screen, 24/7" },
+  { id: "AT_rjlKyfUY", name: "Rain and thunder", description: "A storm on a dark screen, 24/7" },
   { id: "4xDzrJKXOOY", name: "Synthwave radio", description: "Beats to chill and game to, 24/7" },
 ]
 
@@ -28,7 +28,6 @@ export const liveGroups: LiveGroup[] = [
     videos: [
       { id: "UQHWkaGATis", name: "Autumn river", description: "Skate Creek forest sounds" },
       { id: "RsM6TmoIUEI", name: "Ocean waves at night", description: "Relaxing sea sounds" },
-      { id: "AT_rjlKyfUY", name: "Rain and thunder", description: "A storm on a dark screen" },
     ],
   },
   {

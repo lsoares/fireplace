@@ -32,7 +32,7 @@ it("lists the videos that open at once with the fireplace first, and each group'
   const live = read("catalog/movie/live.json").metas
   const space = read("catalog/movie/space.json").metas
 
-  expect(live.map(({ name }: { name: string }) => name)).toEqual(["Fireplace", "Lofi hip hop radio", "Rain for sleeping", "Synthwave radio"])
+  expect(live.map(({ name }: { name: string }) => name)).toEqual(["Fireplace", "Lofi hip hop radio", "Rain and thunder", "Synthwave radio"])
   expect(live[0]).toMatchObject({ id: "fp-Mkv6368NCC8", type: "movie", poster: "https://i.ytimg.com/vi/Mkv6368NCC8/hqdefault.jpg", posterShape: "landscape" })
   expect(space.map(({ name }: { name: string }) => name)).toEqual(["Earth from the ISS", "Earth views from the ISS", "Starship at Starbase"])
 })
