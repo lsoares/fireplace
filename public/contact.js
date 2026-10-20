@@ -1,4 +1,10 @@
+// In a block of its own, as the scripts of a page share their names: what is declared here is not seen by the others
+{
 // The message goes to Web3Forms, which has the address it's sent to; with no script, the form is sent as it is
+const dialog = document.getElementById("contact-dialog")
+document.querySelector(".open-contact").addEventListener("click", () => dialog.showModal())
+dialog.querySelector(".dialog-x").addEventListener("click", () => dialog.close())
+dialog.addEventListener("click", event => event.target === dialog && dialog.close())
 const form = document.getElementById("contact")
 form.addEventListener("submit", async event => {
   event.preventDefault()
@@ -13,3 +19,4 @@ form.addEventListener("submit", async event => {
     status.textContent = "Couldn't send it. Try again later."
   }
 })
+}
