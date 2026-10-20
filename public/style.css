@@ -28,5 +28,12 @@ a { color: var(--accent); }
 .coffee a:hover { color: var(--accent); }
 .coffee span { display: block; }
 .kofi { width: 1.2em; height: 1.2em; fill: #ff5e5b; vertical-align: -0.25em; }
+.contact { margin-top: 1.5rem; color: var(--muted); font-size: 0.9rem; text-align: center; }
+.contact summary { cursor: pointer; }
+.contact form { display: grid; gap: 0.6rem; margin-top: 0.8rem; text-align: left; }
+.contact textarea, .contact input[type="email"] { width: 100%; padding: 0.7rem 0.8rem; border: 1px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); font: inherit; }
+.contact [name="botcheck"] { display: none; }
+.contact .button { cursor: pointer; }
+#contact-status { min-height: 1.2em; margin: 0; }
 .legal { margin-top: 1rem; font-size: 0.8rem; }
 .legal a { color: var(--muted); text-decoration: underline; }
