@@ -11,7 +11,7 @@ it("declares, at the root, a row for the videos that open at once and a row for 
 
   expect(manifest).toMatchObject({
     id: "community.fireplace",
-    name: "Fireplace",
+    name: "🔥 Fireplace",
     resources: ["catalog", "meta", "stream"],
     types: ["movie"],
     idPrefixes: ["fp-"],
@@ -19,7 +19,7 @@ it("declares, at the root, a row for the videos that open at once and a row for 
     logo: "https://example.github.io/fireplace/logo.png",
   })
   expect(manifest.catalogs).toEqual([
-    { type: "movie", id: "live", name: "Fireplace" },
+    { type: "movie", id: "live", name: "🔥 Fireplace" },
     { type: "movie", id: "music", name: "Fireplace · Music" },
     { type: "movie", id: "nature", name: "Fireplace · Nature" },
     { type: "movie", id: "animals", name: "Fireplace · Animals" },

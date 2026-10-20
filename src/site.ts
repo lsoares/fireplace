@@ -16,7 +16,10 @@ function choicesOfGroups(): LiveGroup[][] {
 function filesOf(siteUrl: string, groups: LiveGroup[]): SiteFile[] {
   const everyone = groups.length === liveGroups.length
   const folder = everyone ? "" : `groups=${groups.map(({ id }) => id).join(",")}/`
-  const rows = [{ id: "live", name: "Fireplace", videos: liveVideos }, ...groups.map(({ id, name, videos }) => ({ id, name: `Fireplace · ${name}`, videos }))]
+  const rows = [
+    { id: "live", name: "🔥 Fireplace", videos: liveVideos },
+    ...groups.map(({ id, name, videos }) => ({ id, name: `Fireplace · ${name}`, videos })),
+  ]
   const videos = rows.flatMap(row => row.videos)
   return [
     ...[
@@ -39,8 +42,8 @@ function metaOf(video: LiveVideo) {
 function manifestOf(siteUrl: string, rows: { id: string; name: string }[]) {
   return {
     id: "community.fireplace",
-    version: "0.1.0",
-    name: "Fireplace",
+    version: "0.1.1",
+    name: "🔥 Fireplace",
     description: "Cozy live streams, 24/7: a fireplace, lofi, rain and synthwave, and groups of music, nature, animals and space",
     logo: `${siteUrl}/logo.png`,
     resources: ["catalog", "meta", "stream"],
