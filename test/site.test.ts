@@ -32,9 +32,10 @@ it("has the row of the videos that open at once first in every folder", () => {
   for (const { body } of manifests) expect(JSON.parse(body).catalogs[0]).toEqual({ type: "movie", id: "live", name: "🔥 Fireplace" })
 })
 
-it("picks the best by hand, from the videos of the groups, with a few from each", () => {
+it("picks the best by hand, with the fireplace first and a few from each group", () => {
   const best = read("catalog/movie/best.json").metas.map(({ id }: { id: string }) => id)
 
+  expect(best[0]).toBe("fp-Mkv6368NCC8")
   expect(best).toEqual(bestGroup.videos.map(({ id }) => `fp-${id}`))
   for (const group of liveGroups) expect(group.videos.filter(video => bestGroup.videos.includes(video)).length).toBeGreaterThanOrEqual(2)
 })
