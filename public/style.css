@@ -26,7 +26,8 @@ a { color: var(--accent); }
 .foot-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.3rem 1.1rem; width: 100%; max-width: 30rem; margin-top: 1rem; padding: 0 0.5rem; font-size: 0.85rem; }
 .foot-links a, .foot-links button { padding: 0; border: 0; background: none; color: var(--muted); font: inherit; text-decoration: none; cursor: pointer; }
 .foot-links a:hover, .foot-links button:hover { color: var(--accent); }
-.foot-links .kofi { width: 1.1em; height: 1.1em; margin-right: 0.35rem; fill: currentColor; vertical-align: -0.2em; }
+.foot-links .kofi { width: 1.1em; height: 1.1em; margin-right: 0.35rem; fill: #e8372c; transition: fill .15s; vertical-align: -0.2em; }
+.foot-links a:hover .kofi { fill: var(--accent); }
 body:has(dialog[open]) { overflow: hidden; }
 dialog { position: relative; width: min(26rem, calc(100% - 2rem)); max-width: none; padding: 1.1rem 1.25rem; border: 1px solid var(--line); border-radius: 16px; background: var(--card); color: var(--text); }
 dialog::backdrop { background: rgb(0 0 0 / 0.55); }
