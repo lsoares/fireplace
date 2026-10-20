@@ -25,6 +25,13 @@ it("declares, at the root, the row of the videos that open at once first, and a 
   ])
 })
 
+it("has the row of the videos that open at once first in every folder", () => {
+  const manifests = site.filter(file => file.path.endsWith("manifest.json"))
+
+  expect(manifests).toHaveLength(2 ** (liveGroups.length + 1))
+  for (const { body } of manifests) expect(JSON.parse(body).catalogs[0]).toEqual({ type: "movie", id: "live", name: "🔥 Fireplace" })
+})
+
 it("picks the best by hand, from the videos of the groups, with a few from each", () => {
   const best = read("catalog/movie/best.json").metas.map(({ id }: { id: string }) => id)
 
