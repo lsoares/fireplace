@@ -17,6 +17,7 @@ it("declares, at the root, a row for the videos that open at once and a row for 
     idPrefixes: ["fp-"],
     behaviorHints: { configurable: true },
     logo: "https://example.github.io/fireplace/logo.png",
+    stremioAddonsConfig: { issuer: "https://stremio-addons.net" },
   })
   expect(manifest.catalogs).toEqual([
     { type: "movie", id: "live", name: "🔥 Fireplace" },
