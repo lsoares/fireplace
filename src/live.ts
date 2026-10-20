@@ -66,6 +66,22 @@ export const liveGroups: LiveGroup[] = [
       { id: "IPRDnt-YrgY", name: "Never ending ASMR", description: "ASMR Love by T, live" },
     ],
   },
+  {
+    id: "trains",
+    name: "Trains",
+    videos: [
+      { id: "7xdHH9KMSVk", name: "Flagstaff train camera", description: "Virtual Railfan, live from Arizona" },
+      { id: "3rDjPLvOShM", name: "Train to the Arctic Circle, winter", description: "Norway, SlowTV, 10 hours" },
+      { id: "pyyJQD91qMU", name: "Luxury train ride", description: "Train sounds to sleep to, 10 hours" },
+      { id: "P0-ymKmO1vI", name: "Trans-Siberian on a rainy night", description: "Train and rain sounds, 10 hours" },
+      { id: "vXCB1zGGFiY", name: "Train through the fog in Switzerland", description: "4K, 8 hours" },
+      { id: "tmlE1ct0cYk", name: "Trainspotting at Prague Main Station", description: "Live in 4K" },
+      { id: "yCtt26c_AOg", name: "Train to the Arctic Circle, summer", description: "Norway, SlowTV, 10 hours" },
+      { id: "gzV7uUxwgwI", name: "London Underground first person", description: "Live journey, 24/7" },
+      { id: "HpgnXXHsmfE", name: "Tram driver's view", description: "POV cab view, live 24/7" },
+      { id: "wxPi28clpk8", name: "RailCam Netherlands", description: "Live trains" },
+    ],
+  },
 ]
 
 // The best of the groups, by hand: the most watched videos that have kept running, taken from the groups above, after the fireplace, which gives the addon its name. It is the one group that is on by default
