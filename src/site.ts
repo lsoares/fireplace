@@ -42,7 +42,7 @@ function metaOf(video: LiveVideo) {
 function manifestOf(siteUrl: string, rows: { id: string; name: string }[]) {
   return {
     id: "community.fireplace",
-    version: "0.1.1",
+    version: "0.1.2",
     name: "🔥 Fireplace",
     description: "Cozy live streams, 24/7: a fireplace, lofi, rain and synthwave, and groups of music, nature, animals and space",
     logo: `${siteUrl}/logo.png`,
@@ -50,6 +50,12 @@ function manifestOf(siteUrl: string, rows: { id: string; name: string }[]) {
     types: ["movie"],
     idPrefixes: ["fp-"],
     behaviorHints: { configurable: true },
+    // What the catalogue of addons gives, to show that this is the addon it lists
+    stremioAddonsConfig: {
+      issuer: "https://stremio-addons.net",
+      signature:
+        "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..3nKPwuJUuO_0uRxU__grXA.KemsvWzISPr_Oudh8ax6GjUMSh62Ttccky13U7rs6v8vnDq28VdS3WBhzzGsFGMZ2fdomk3_nTU5ml8i5fpsLMEZCJmbVfPN6ATnS_kD30nGS0BVLSMKWyhW_YFKorjY._kYZ4FjwWef1BbiR_hADtA",
+    },
     catalogs: rows.map(({ id, name }) => ({ type: "movie", id, name })),
   }
 }
