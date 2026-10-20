@@ -51,3 +51,14 @@ export const liveGroups: LiveGroup[] = [
     ],
   },
 ]
+
+// The best of the groups, by hand: the most watched videos that have kept running, taken from the groups above. It is the one group that is on by default
+export const bestGroup: LiveGroup = {
+  id: "best",
+  name: "Best",
+  videos: ["OYCHs8_Fgjk", "f5KUbyQBUTo", "RsM6TmoIUEI", "UQHWkaGATis", "FCgli5GQs9g", "9pInqwL0DEY", "7zmZ2JzuzxA", "diy2UH9a74k"].map(id => {
+    const video = liveGroups.flatMap(({ videos }) => videos).find(video => video.id === id)
+    if (!video) throw new Error(`The best has a video that is in no group: ${id}`)
+    return video
+  }),
+}
