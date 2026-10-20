@@ -1,0 +1,23 @@
+{
+  "name": "fireplace",
+  "scripts": {
+    "build": "tsx src/build.ts",
+    "preview": "npm run build && npx --yes serve dist -l 7003",
+    "test": "vitest run --dir test",
+    "lint": "biome check .",
+    "knip": "knip",
+    "check": "biome check . && knip && tsc --noEmit -p . && vitest run --dir test",
+    "prepare": "husky"
+  },
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^24.0.0",
+    "husky": "^9.1.7",
+    "knip": "^6.39.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
