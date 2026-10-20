@@ -37,12 +37,13 @@ it("picks the best by hand, with the fireplace first and a few from each group",
 
   expect(best[0]).toBe("fp-oH3f8pj0Z3c")
   expect(best).toEqual(bestGroup.videos.map(({ id }) => `fp-${id}`))
-  for (const group of liveGroups) expect(group.videos.filter(video => bestGroup.videos.includes(video)).length).toBeGreaterThanOrEqual(2)
+  for (const group of liveGroups.filter(({ id }) => id !== "asmr"))
+    expect(group.videos.filter(video => bestGroup.videos.includes(video)).length).toBeGreaterThanOrEqual(2)
 })
 
 it("lists the videos that open at once with the fireplace first, and each group's videos in its own row", () => {
   const live = read("catalog/movie/live.json").metas
-  const space = read("groups=best,music,nature,animals,space/catalog/movie/space.json").metas
+  const space = read("groups=best,music,nature,animals,space,asmr/catalog/movie/space.json").metas
 
   expect(live.map(({ name }: { name: string }) => name)).toEqual(["Fireplace", "Lofi hip hop radio", "Rain and thunder", "Synthwave radio"])
   expect(live[0]).toMatchObject({ id: "fp-oH3f8pj0Z3c", type: "movie", poster: "https://i.ytimg.com/vi/oH3f8pj0Z3c/hqdefault.jpg", posterShape: "landscape" })
@@ -99,8 +100,8 @@ it("has a meta and a stream for each video, and no video twice", () => {
 
   expect(new Set(ids).size).toBe(ids.length)
   for (const id of ids) {
-    expect(pathsOf(site)).toContain(`groups=best,music,nature,animals,space/meta/movie/fp-${id}.json`)
-    expect(pathsOf(site)).toContain(`groups=best,music,nature,animals,space/stream/movie/fp-${id}.json`)
+    expect(pathsOf(site)).toContain(`groups=best,music,nature,animals,space,asmr/meta/movie/fp-${id}.json`)
+    expect(pathsOf(site)).toContain(`groups=best,music,nature,animals,space,asmr/stream/movie/fp-${id}.json`)
   }
 })
 

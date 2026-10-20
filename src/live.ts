@@ -50,6 +50,22 @@ export const liveGroups: LiveGroup[] = [
       { id: "lTHD0ZYTV78", name: "Starship at Starbase", description: "Live views from Texas" },
     ],
   },
+  {
+    id: "asmr",
+    name: "ASMR",
+    videos: [
+      { id: "vHjHk1CXxbY", name: "ASMR for people who don't sleep", description: "Jojo's ASMR, 10+ hours" },
+      { id: "-n4MLELSO50", name: "ASMR to sleep, tingle and relax", description: "Jojo's ASMR, 10 hours" },
+      { id: "3EnpPgG6IHs", name: "ASMR 24/7 tingly triggers", description: "BlueFridayASMR, no talking" },
+      { id: "Bp0Xp54A7iE", name: "ASMR to sleep to", description: "Jojo's ASMR, 10 hours" },
+      { id: "gFQ6zSaWkDs", name: "ASMR 24/7 personal attention", description: "Restful Rambles, live" },
+      { id: "6fbbT0ygzK4", name: "ASMR 24/7 light triggers", description: "Restful Rambles, live" },
+      { id: "XSu2hSE3o24", name: "ASMR for a dreamy night's sleep", description: "Simply Kel, 10+ hours" },
+      { id: "E4e1HMfckMo", name: "Slime ASMR 24/7", description: "ASMR Love by T, live" },
+      { id: "WwTARGLXspQ", name: "24 hours of pure ASMR", description: "ASMR Love by T" },
+      { id: "IPRDnt-YrgY", name: "Never ending ASMR", description: "ASMR Love by T, live" },
+    ],
+  },
 ]
 
 // The best of the groups, by hand: the most watched videos that have kept running, taken from the groups above, after the fireplace, which gives the addon its name. It is the one group that is on by default

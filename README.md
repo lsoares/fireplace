@@ -1,6 +1,6 @@
 # Fireplace
 
-Cozy live streams for Stremio, 24/7: a fireplace, lofi, rain and synthwave, as the first row, then the best of the groups, and groups of music, nature, animals and space. Each group is a row of its own on the Board. Only the best is on by default; the others are chosen on the page.
+Cozy live streams for Stremio, 24/7: a fireplace, lofi, rain and synthwave, as the first row, then the best of the groups, and groups of music, nature, animals, space and ASMR. Each group is a row of its own on the Board. Only the best is on by default; the others are chosen on the page.
 
 **Install:** open **https://lsoares.github.io/fireplace/**, choose the groups, then **Install**, or paste `https://lsoares.github.io/fireplace/manifest.json` in Stremio's addon search.
 
