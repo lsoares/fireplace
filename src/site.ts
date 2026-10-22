@@ -1,11 +1,12 @@
-import { bestGroup, type LiveGroup, type LiveVideo, liveGroups, liveVideos, thumbnailOf } from "./live"
+import { bestGroup, type LiveGroup, type LiveVideo, liveGroups, liveSlots, rowSize, thumbnailOf } from "./live"
 
 export type SiteFile = { path: string; body: string }
 
 // The files of the site that Stremio asks for, with the pictures and pages of the site left to its folder. Stremio asks for everything at the address of the manifest it was
 // given, so each choice of groups has a folder of its own: the one that is on by default (only the best) at the root, and the others in `groups=best,space/`, which is the way to choose with no server
-export function buildSite(siteUrl: string): SiteFile[] {
-  return choicesOfGroups().flatMap(groups => filesOf(siteUrl, groups))
+// `blocked` are the videos that YouTube's player will not play inside another page, which Stremio could not play either, so they are left out
+export function buildSite(siteUrl: string, blocked: ReadonlySet<string> = new Set()): SiteFile[] {
+  return choicesOfGroups().flatMap(groups => filesOf(siteUrl, groups, blocked))
 }
 
 // Every choice of the groups, with the others in the order they are in, from all of them to none
@@ -16,13 +17,20 @@ function choicesOfGroups(): LiveGroup[][] {
 // The best comes first among the groups, and is the only one on by default
 const groups = [bestGroup, ...liveGroups]
 
-function filesOf(siteUrl: string, chosen: LiveGroup[]): SiteFile[] {
+function filesOf(siteUrl: string, chosen: LiveGroup[], blocked: ReadonlySet<string>): SiteFile[] {
   const byDefault = chosen.length === 1 && chosen[0] === bestGroup
   const folder = byDefault ? "" : `groups=${chosen.map(({ id }) => id).join(",")}/`
+  const allowed = (video: LiveVideo) => !blocked.has(video.id)
+  // The first of each kind that is allowed, with the fireplace first, whatever the one it is
+  const live = liveSlots.flatMap(slot => slot.find(allowed) ?? [])
   // The row of the videos that open at once is always the first, then the groups; a video that is in two rows has its files once
   const rows = [
-    { id: "live", name: "🔥 Fireplace", videos: liveVideos },
-    ...chosen.map(({ id, name, videos }) => ({ id, name: `Fireplace · ${name}`, videos })),
+    { id: "live", name: "🔥 Fireplace", videos: live },
+    ...chosen.map(({ id, name, videos }) => ({
+      id,
+      name: `Fireplace · ${name}`,
+      videos: [...(id === bestGroup.id ? live.slice(0, 1) : []), ...videos.filter(allowed)].slice(0, rowSize),
+    })),
   ]
   const videos = [...new Map(rows.flatMap(row => row.videos).map(video => [video.id, video])).values()]
   return [

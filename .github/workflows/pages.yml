@@ -3,6 +3,10 @@ name: Pages
 on:
   push:
     branches: [main]
+  # Every day, as the videos that YouTube lets embed change: the ones that no longer do are left out of the site
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -27,6 +31,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      # If this fails the site is still built, with no video left out
+      - run: npm run embeds
+        continue-on-error: true
       - id: pages
         uses: actions/configure-pages@v5
       - run: npm run build

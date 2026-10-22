@@ -1,5 +1,5 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
-  "entry": ["src/build.ts"],
+  "entry": ["src/build.ts", "src/check-embeds.ts"],
   "ignore": ["public/**"]
 }

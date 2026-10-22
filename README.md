@@ -9,7 +9,8 @@ It is a static site: no server, nothing kept. The files Stremio asks for (`manif
 ```bash
 npm install
 npm run check     # Biome, Knip, type check and tests (also run before every push)
+npm run embeds    # tests which videos let embed (needs a browser: `npx playwright install chromium`)
 npm run preview   # builds the site and serves it at http://127.0.0.1:7003
 ```
 
-Only videos that allow embedding are listed, as the others do not play in Stremio; this is checked by hand, with YouTube's player (error 150 means it is not allowed). The list of videos is `src/live.ts`; the best is picked there by hand, from the videos of the groups.
+Only videos that allow embedding are listed, as the others do not play in Stremio. Each group is a pool with more videos than a row has room for (ten); every day, and at each push, `npm run embeds` plays them all in a browser with YouTube's player (error 150 means it is not allowed) and writes the ones that fail to `blocked.json`, which `npm run build` leaves out, so the next of the pool takes their place. The fireplace is always the first video. The list of videos is `src/live.ts`; the best is picked there by hand, from the videos of the groups.
