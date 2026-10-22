@@ -7,7 +7,7 @@ export const thumbnailOf = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefau
 export const liveVideos: LiveVideo[] = [
   { id: "oH3f8pj0Z3c", name: "Fireplace", description: "A cozy fireplace in 4K, 24/7" },
   { id: "rFZHOHl-L8A", name: "Lofi hip hop radio", description: "Beats to relax and study to, 24/7" },
-  { id: "AT_rjlKyfUY", name: "Rain and thunder", description: "A storm on a dark screen, 24/7" },
+  { id: "cI0zN1nG3PQ", name: "Rain and thunder", description: "A storm on a dark screen, 24/7" },
   { id: "4xDzrJKXOOY", name: "Synthwave radio", description: "Beats to chill and game to, 24/7" },
 ]
 
@@ -18,7 +18,6 @@ export const liveGroups: LiveGroup[] = [
     name: "Music",
     videos: [
       { id: "OYCHs8_Fgjk", name: "Cozy bakery jazz", description: "Bossa nova and jazz" },
-      { id: "anO3EGzvnDY", name: "Quiet Chapters radio", description: "Cinematic and neoclassical" },
       { id: "IosjNLdAlnk", name: "Darksynth FM", description: "Dark synthwave" },
     ],
   },
@@ -27,7 +26,7 @@ export const liveGroups: LiveGroup[] = [
     name: "Nature",
     videos: [
       { id: "UQHWkaGATis", name: "Autumn river", description: "Skate Creek forest sounds" },
-      { id: "RsM6TmoIUEI", name: "Ocean waves at night", description: "Relaxing sea sounds" },
+      { id: "_BMi3usEwi8", name: "Ocean waves", description: "Tropical beach in 4K, 24/7" },
     ],
   },
   {
@@ -46,7 +45,7 @@ export const liveGroups: LiveGroup[] = [
     name: "Space",
     videos: [
       { id: "7zmZ2JzuzxA", name: "Earth from the ISS", description: "Space station cameras" },
-      { id: "diy2UH9a74k", name: "Earth views from the ISS", description: "Stunning views, 24/7" },
+      { id: "tj4knR4r1UU", name: "NASA live stream of Earth", description: "From the ISS, 24/7" },
       { id: "lTHD0ZYTV78", name: "Starship at Starbase", description: "Live views from Texas" },
     ],
   },
@@ -88,7 +87,7 @@ export const liveGroups: LiveGroup[] = [
 export const bestGroup: LiveGroup = {
   id: "best",
   name: "Best",
-  videos: ["oH3f8pj0Z3c", "OYCHs8_Fgjk", "anO3EGzvnDY", "RsM6TmoIUEI", "UQHWkaGATis", "FCgli5GQs9g", "9pInqwL0DEY", "7zmZ2JzuzxA", "diy2UH9a74k"].map(id => {
+  videos: ["oH3f8pj0Z3c", "OYCHs8_Fgjk", "IosjNLdAlnk", "_BMi3usEwi8", "UQHWkaGATis", "FCgli5GQs9g", "9pInqwL0DEY", "7zmZ2JzuzxA", "tj4knR4r1UU"].map(id => {
     const video = [...liveVideos, ...liveGroups.flatMap(({ videos }) => videos)].find(video => video.id === id)
     if (!video) throw new Error(`The best has a video that is in no group: ${id}`)
     return video

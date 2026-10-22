@@ -47,7 +47,7 @@ it("lists the videos that open at once with the fireplace first, and each group'
 
   expect(live.map(({ name }: { name: string }) => name)).toEqual(["Fireplace", "Lofi hip hop radio", "Rain and thunder", "Synthwave radio"])
   expect(live[0]).toMatchObject({ id: "fp-oH3f8pj0Z3c", type: "movie", poster: "https://i.ytimg.com/vi/oH3f8pj0Z3c/hqdefault.jpg", posterShape: "landscape" })
-  expect(space.map(({ name }: { name: string }) => name)).toEqual(["Earth from the ISS", "Earth views from the ISS", "Starship at Starbase"])
+  expect(space.map(({ name }: { name: string }) => name)).toEqual(["Earth from the ISS", "NASA live stream of Earth", "Starship at Starbase"])
 })
 
 it("has a folder for each choice of groups, with the plain one for only the best", () => {
@@ -70,7 +70,7 @@ it("has in the folder of a choice only the rows of the groups chosen, and the vi
   const manifest = read("groups=music,space/manifest.json")
 
   expect(manifest.catalogs.map(({ id }: { id: string }) => id)).toEqual(["live", "music", "space"])
-  expect(read("groups=music,space/catalog/movie/music.json").metas).toHaveLength(3)
+  expect(read("groups=music,space/catalog/movie/music.json").metas).toHaveLength(2)
   expect(read("groups=music,space/stream/movie/fp-OYCHs8_Fgjk.json").streams).toHaveLength(1)
   expect(pathsOf(site)).toContain("groups=music,space/meta/movie/fp-7zmZ2JzuzxA.json")
   expect(pathsOf(site)).not.toContain("groups=music,space/meta/movie/fp-UQHWkaGATis.json")
