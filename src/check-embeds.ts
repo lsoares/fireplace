@@ -24,11 +24,11 @@ await once(server, "listening")
 const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL })
 try {
   const tab = await browser.newPage()
-  await tab.goto(`http://localhost:${(server.address() as { port: number }).port}/`)
+  await tab.goto(`http://localhost:${(server.address() as { port: number }).port}/`, { waitUntil: "commit" })
   await tab
-    .waitForFunction(count => Object.keys((window as unknown as { results: object }).results).length >= count, ids.length, { timeout: 60_000 })
+    .waitForFunction(count => Object.keys((window as unknown as { results?: object }).results ?? {}).length >= count, ids.length, { timeout: 90_000 })
     .catch(() => {})
-  const results: Record<string, string | number> = await tab.evaluate(() => (window as unknown as { results: Record<string, string | number> }).results)
+  const results: Record<string, string | number> = await tab.evaluate(() => (window as unknown as { results?: Record<string, string | number> }).results ?? {})
   const blocked = ids.filter(id => notAllowed.includes(Number(results[id])))
   // If most of them fail, it is the test that is wrong (YouTube asking this browser to sign in, say) and not the videos: then none are left out, as the list must not go empty
   const trusted = Object.values(results).includes("ready") && blocked.length <= ids.length / 2
