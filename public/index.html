@@ -33,9 +33,16 @@
       </div>
 
       <div class="actions">
-        <a class="button" id="install">Install in Stremio</a>
-        <a class="button" id="install-web" hidden target="_blank" rel="noopener">Install via web</a>
-        <button class="button secondary" id="copy" type="button">Copy link</button>
+        <div class="split">
+          <a class="button" id="install">Install in Stremio</a>
+          <details class="more">
+            <summary aria-label="Other ways to install" title="Other ways to install"></summary>
+            <div class="menu">
+              <button type="button" id="copy">Copy link</button>
+              <a id="install-web" target="_blank" rel="noopener">Install via web</a>
+            </div>
+          </details>
+        </div>
       </div>
       <p class="note">Nothing of yours is kept: what you choose is in the address of the addon. Each group is a row of its own on the Board.</p>
       <p class="note">Only videos that YouTube lets other apps embed are listed, as the others don't play in Stremio. The list is checked by hand, so if one stops playing, it is because its owner changed that.</p>
