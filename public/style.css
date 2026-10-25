@@ -53,3 +53,4 @@ dialog h2 { margin: 0 2rem 0.2rem 0; color: var(--text); font-size: 1.05rem; let
 .contact .button { cursor: pointer; }
 #contact-status { margin: 0; }
 #contact-status:empty { display: none; }
+.preview { display: block; width: 100%; height: auto; margin: 0 0 1.5rem; border-radius: 12px; }
