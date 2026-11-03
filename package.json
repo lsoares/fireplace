@@ -7,7 +7,8 @@
     "test": "vitest run --dir test",
     "lint": "biome check .",
     "knip": "knip",
-    "check": "biome check . && knip && tsc --noEmit -p . && vitest run --dir test"
+    "check": "biome check . && knip && tsc --noEmit -p . && vitest run --dir test",
+    "postinstall": "git config core.hooksPath .githooks || true"
   },
   "type": "module",
   "private": true,
