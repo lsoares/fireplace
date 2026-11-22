@@ -3,9 +3,9 @@ name: Pages
 on:
   push:
     branches: [main]
-  # Every day, as the videos that YouTube lets embed change: the ones that no longer do are left out of the site
+  # Once a week, on Mondays, as the videos that YouTube lets embed change slowly: the ones that no longer do are left out of the site
   schedule:
-    - cron: "17 5 * * *"
+    - cron: "17 5 * * 1"
   workflow_dispatch:
 
 permissions:
